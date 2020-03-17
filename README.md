@@ -1,6 +1,12 @@
 # ubuntu-dev-env-setup
 The steps to setting my current dev environment on Ubuntu.
 
+## Pre-requisites:
+- Install Ubuntu desktop
+- Configure local ssh access
+- Setup github access
+- Install VS Code
+
 ## 1. Installing Node and npm using NVM
 Sourced from:
 - https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/
