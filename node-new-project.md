@@ -10,7 +10,7 @@ cd new-project-name
 ## 2. Initialise the project
 Accept the default responses when initialising:
 ```
-npm init
+npm init -y
 ```
 
 Set the npm registry to private:
@@ -35,7 +35,7 @@ npx jest --version
 
 Set Jest as default test script:
 ```
-// package.json
+// ./package.json
 ...
   "scripts": {
     "test": "jest"
@@ -48,3 +48,36 @@ Check it worked with
 npm test
 ```
 ## 4. Add a basic test
+Create "Greeting" test and functionality:
+
+From the project root:
+```
+mkdir tests
+```
+
+Create test file:
+```
+// ./tests/greeting.test.js
+  const greeting = require('./index');
+
+  describe('greeting()', () => {
+    it('says hello', () => {
+      expect(greeting('Nemo')).toBe('Hello, Nemo!');
+    });
+  });      
+```
+
+Create functionality:
+```
+// ./greeting.js
+  module.exports = (name) => {
+    return `Hello, ${name}!`
+  };      
+```
+
+Run the test:
+```
+npm test
+```
+
+.git and ignore, vs code setup.
