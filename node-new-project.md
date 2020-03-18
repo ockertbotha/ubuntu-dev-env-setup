@@ -17,7 +17,9 @@ Set the npm registry to private:
 ```
 // package.json
 ...
+  "name": "new-project-name",
   "private": true,
+  "version": "1.0.0",
 ...
 ```
 
