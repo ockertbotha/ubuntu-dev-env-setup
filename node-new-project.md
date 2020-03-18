@@ -58,7 +58,7 @@ mkdir tests
 Create test file:
 ```
 // ./tests/greeting.test.js
-  const greeting = require('./index');
+  const greeting = require('../greeting');
 
   describe('greeting()', () => {
     it('says hello', () => {
