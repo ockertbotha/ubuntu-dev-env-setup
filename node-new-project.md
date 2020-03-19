@@ -80,4 +80,16 @@ Run the test:
 npm test
 ```
 
-.git and ignore, vs code setup.
+## 5. Setup git
+From the project root:
+```
+git init
+```
+
+Create git ignore:
+```
+// ./gitignore
+node_modules/
+```
+
+vs code setup.
