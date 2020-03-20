@@ -92,4 +92,18 @@ Create git ignore:
 node_modules/
 ```
 
-vs code setup.
+## 6. Configure Jest in watch mode.
+From VS Code terminal in project root:
+```
+npx jest --watchAll
+```
+
+Modify the test file and Jest should auto update when it is saved:
+```
+// ./tests/greeting.test.js
+  const greeting = require('../greeting');
+      ...
+      expect(greeting('Nemo')).toBe('Hello, Nemo!');
+      expect(greeting('Waldo')).toBe('Hello, Waldo!');
+      ...  
+```
