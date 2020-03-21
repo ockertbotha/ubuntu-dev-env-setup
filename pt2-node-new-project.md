@@ -90,6 +90,7 @@ Create git ignore:
 ```
 // ./gitignore
 node_modules/
+.vscode/
 ```
 
 ## 6. Configure Jest in watch mode.
@@ -106,4 +107,25 @@ Modify the test file and Jest should auto update when it is saved:
       expect(greeting('Nemo')).toBe('Hello, Nemo!');
       expect(greeting('Waldo')).toBe('Hello, Waldo!');
       ...  
+```
+
+## 7. Install and Configure ESLint
+First quit Jest if it's still running *Q* then
+from VS Code terminal in project root:
+```
+npm install --save-dev eslint@5.10.0
+```
+
+Create ESLint configuration file in the project root:
+```
+// .eslintrc.js
+module.exports = {
+  extends: [`eslint:recommended`],
+  parserOptions: {
+    ecmaVersion: 6,
+  },
+  env: {
+    node: true,
+  },
+};
 ```

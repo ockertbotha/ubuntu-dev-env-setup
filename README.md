@@ -6,3 +6,9 @@ The steps to setting my current dev environment on Ubuntu.
 - Configure local ssh access
 - Setup github access
 - Install VS Code
+
+Start: Extending ESLint Configuration
+
+## Notes:
+- Java Linter
+-
