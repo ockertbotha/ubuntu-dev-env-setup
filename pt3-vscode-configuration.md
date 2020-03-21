@@ -1,7 +1,7 @@
 # Configure VS Code
 The steps to getting VS Code setup:
 
-##1. User settings
+## 1. User settings
 From the Command Palette (ctrl+shift+p):
 ```
 Preferences: Open Settings (JSON)
@@ -18,7 +18,7 @@ Add:
 
 Save and reopen.
 
-##2. Workspace settings
+## 2. Workspace settings
 With user settings open, select *WORKSPACE* option, found next to
 *USER* title of settings page. This adds new file to a project
 root *.vscode/settings.json* where we add the following:

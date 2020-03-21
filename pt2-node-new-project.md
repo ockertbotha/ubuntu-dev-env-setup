@@ -109,23 +109,70 @@ Modify the test file and Jest should auto update when it is saved:
       ...  
 ```
 
-## 7. Install and Configure ESLint
+## 7. Install and Configure ESLint with Jest support
 First quit Jest if it's still running *Q* then
 from VS Code terminal in project root:
 ```
 npm install --save-dev eslint@5.10.0
+npm install --save-dev eslint-plugin-jest@22.1.2
 ```
 
 Create ESLint configuration file in the project root:
 ```
 // .eslintrc.js
 module.exports = {
-  extends: [`eslint:recommended`],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaVersion: 6,
   },
   env: {
     node: true,
   },
+};
+```
+
+Create ESLint configuration file in the test directory:
+```
+// ./tests/eslintrc.js
+module.exports = {
+  plugins: ['jest'],
+  extends: ['plugin:jest/recommended'],
+};
+```
+
+Check all is well; no feed back from either:
+```
+npx eslint greeting.js
+npx eslint ./tests/greeting.test.js
+```
+
+Install ESLint plugin for linting as you code, open extensions
+sidebar (ctrl+shift+x), search for "ESLint" install Dirk Baeumer's version.
+
+Your code will now be linted as you type, this can be changed to as you save, search for other config options.
+
+## 8. Install, configure and integrate Prettier with VS Code
+Run from project root:
+```
+npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+```
+
+Edit ESLint configuration file in the project root:
+```
+// .eslintrc.js
+module.exports = {
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  ...
+};
+```
+
+Create Prettier configuration file in the project root:
+```
+// .prettierrc.js
+module.exports = {
+  trailingComma: 'es5',
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true, 
 };
 ```
