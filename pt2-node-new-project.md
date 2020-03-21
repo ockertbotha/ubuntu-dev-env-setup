@@ -154,8 +154,12 @@ Your code will now be linted as you type, this can be changed to as you save, se
 ## 8. Install, configure and integrate Prettier with VS Code
 Run from project root:
 ```
+npm install --save-dev prettier-eslint-cli@4.7.1
 npm install --save-dev eslint-config-prettier eslint-plugin-prettier
 ```
+
+Install Prettier plugin for linting as you code, open extensions
+sidebar (ctrl+shift+x), search for "ESLint" install Dirk Baeumer's version.
 
 Edit ESLint configuration file in the project root:
 ```
@@ -173,6 +177,22 @@ module.exports = {
   trailingComma: 'es5',
   tabWidth: 2,
   semi: true,
-  singleQuote: true, 
+  singleQuote: true,
 };
+```
+
+Set Lint and Prettier as default scripts:
+```
+// ./package.json
+...
+  "scripts": {
+    "test": "jest"
+    "lint": "eslint . && prettier-eslint --list-different **/*.js",
+    "format": "prettier-eslint --write **/*.js"    
+  },
+...
+```
+The check it all works:
+```
+npm run format
 ```

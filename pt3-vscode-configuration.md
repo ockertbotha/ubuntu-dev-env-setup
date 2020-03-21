@@ -12,6 +12,14 @@ Add:
 {
   ...
   "workbench.settings.useSplitJSON": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.tslint": true,
+      "source.fixAll.stylelint": true
+  },  
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   ...
 }
 ```
