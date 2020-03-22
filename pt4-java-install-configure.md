@@ -34,9 +34,10 @@ Reload the environment file into the current session:
 source /etc/environment
 ```
 
-Verify the installion:
+Verify the configuration and installation:
 ```
 echo $JAVA_HOME
+java -version
 ```
 
 ## 4. Uninstall Java (If you ever need to)
