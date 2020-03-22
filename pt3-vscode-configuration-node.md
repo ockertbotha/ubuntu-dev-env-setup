@@ -1,4 +1,4 @@
-# Configure VS Code
+# Configure VS Code for Node
 The steps to getting VS Code setup:
 
 ## 1. User settings
