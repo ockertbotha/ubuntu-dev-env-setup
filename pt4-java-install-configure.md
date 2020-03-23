@@ -45,3 +45,16 @@ java -version
 sudo apt remove openjdk-8-jdk
 ```
 Obviously update your JAVA_HOME if needed.
+
+## 5. Install Apache Maven
+```
+sudo apt update
+```
+
+```
+sudo apt install maven
+```
+
+```
+mvn -version
+```
