@@ -21,4 +21,35 @@ Please check that the following are installed before you continue:
 
 ## 1. Create the project using VS Code: Spring Initializr
 Open the Command Palette (ctrl+shift+p) and type *Spring Initializr* to start
-the wizard.
+the wizard and enter the following specific values or accept the defaults:
+```
+Language: Java
+```
+```
+Group Id: org.springframework
+```
+```
+Artifact Id: my-spring-boot-docker
+```
+```
+Dependencies: Spring Boot DevTools
+```
+
+For location select your projects folder
+```
+Generate into: <projects folder>
+```
+With the values mentioned here this will generation your project into:
+```
+..\<projects folder>\my-spring-boot-docker
+```
+
+## 2. A quick refactor
+Because we want to follow https://spring.io/guides/gs/spring-boot-docker/ as
+closely as possible let's change some of the generated code, I could go back and
+see if changing some of the *Spring Initializr* options would give us the
+desired output and structure from the start but then we wouldn't get a chance
+to use VS Code's Java refactoring:
+
+In VS Code open: <path>
+<ctrl+shift+r>
