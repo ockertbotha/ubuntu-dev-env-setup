@@ -45,11 +45,4 @@ With the values mentioned here this will generation your project into:
 ```
 
 ## 2. A quick refactor
-Because we want to follow https://spring.io/guides/gs/spring-boot-docker/ as
-closely as possible let's change some of the generated code, I could go back and
-see if changing some of the *Spring Initializr* options would give us the
-desired output and structure from the start but then we wouldn't get a chance
-to use VS Code's Java refactoring:
-
-In VS Code open: <path>
-<ctrl+shift+r>
+Pick-up from here.
