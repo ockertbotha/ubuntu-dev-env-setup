@@ -18,7 +18,9 @@ Add:
       "source.fixAll.stylelint": true
   },  
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
   },
   ...
 }

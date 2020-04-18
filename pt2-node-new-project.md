@@ -159,7 +159,7 @@ npm install --save-dev eslint-config-prettier eslint-plugin-prettier
 ```
 
 Install Prettier plugin for linting as you code, open extensions
-sidebar (ctrl+shift+x), search for "ESLint" install Dirk Baeumer's version.
+sidebar (ctrl+shift+x), search for "Prettier - Code formatter" install Esben Petersen's version.
 
 Edit ESLint configuration file in the project root:
 ```
