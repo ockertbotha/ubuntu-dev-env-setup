@@ -7,7 +7,20 @@ mkdir new-project-name
 cd new-project-name
 ```
 
-## 2. Initialise the project
+## 2. Setup git
+From the project root:
+```
+git init
+```
+
+Create git ignore:
+```
+// ./gitignore
+node_modules/
+.vscode/
+```
+
+## 3. Initialise the project
 Accept the default responses when initialising:
 ```
 npm init -y
@@ -23,9 +36,24 @@ Set the npm registry to private:
 ...
 ```
 
-## 3. Adding Jest as a dependency
+## 4. Adding Babel
 ```
-npm install --save-dev jest@23.6.0
+npm install --save-dev @babel/core@7.2.0
+npm install --save-dev @babel/preset-react@7.0.0 @babel/preset-env@7.2.0
+```
+
+Make accessible:
+```
+// ./babelrc.js
+module.exports = {
+  presets: ['@babel/preset-react', '@babel/preset-env'],
+};
+```
+
+## 5. Adding Jest and Babel as dependencies
+```
+npm install --save-dev jest@23.6.0 babel-jest@23.6.0
+npm install --save-dev babel-core@^7.0.0-bridge.0
 ```
 
 Check it was installed with:
@@ -47,7 +75,8 @@ Check it worked with
 ```
 npm test
 ```
-## 4. Add a basic test
+
+## 6. Add a basic test
 Create "Greeting" test and functionality:
 
 From the project root:
@@ -80,18 +109,32 @@ Run the test:
 npm test
 ```
 
-## 5. Setup git
-From the project root:
+## 7. Install React and add test
 ```
-git init
+npm install react@16.4.2
+npm install --save-dev react-dom@16.4.2
 ```
 
-Create git ignore:
+Create test file:
 ```
-// ./gitignore
-node_modules/
-.vscode/
+// ./tests/greeting-react.test.js
+  import React from 'react';
+
+  describe('JSX', () => {
+    it('calls React.createElement', () => {
+        const createElementSpy = jest.spyOn(React, 'createElement');
+        <h1>Hello, JSX!</h1>;
+        expect(createElementSpy).toHaveBeenCalledWith('h1', null, 'Hello, JSX!');
+      });    
+  });      
 ```
+
+Check it worked:
+```
+npx jest
+```
+
+
 
 ## 6. Configure Jest in watch mode.
 From VS Code terminal in project root:
@@ -196,3 +239,5 @@ The check it all works:
 ```
 npm run format
 ```
+
+## 9. Use Wallaby?
