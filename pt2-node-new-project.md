@@ -86,7 +86,7 @@ mkdir tests
 
 Create test file:
 ```
-// ./tests/greeting.test.js
+// ./src/tests/greeting.test.js
   const greeting = require('../greeting');
 
   describe('greeting()', () => {
@@ -98,7 +98,7 @@ Create test file:
 
 Create functionality:
 ```
-// ./greeting.js
+// ./src/greeting.js
   module.exports = (name) => {
     return `Hello, ${name}!`
   };      
@@ -117,7 +117,7 @@ npm install --save-dev react-dom@16.4.2
 
 Create test file:
 ```
-// ./tests/greeting-react.test.js
+// ./src/tests/greeting-react.test.js
   import React from 'react';
 
   describe('JSX', () => {
@@ -134,59 +134,61 @@ Check it worked:
 npx jest
 ```
 
+## 7. Install and Configure ESLint
+Note: pt3-vscode-configuration-node must also be completed for all of this to work.
 
-
-## 6. Configure Jest in watch mode.
 From VS Code terminal in project root:
 ```
-npx jest --watchAll
-```
-
-Modify the test file and Jest should auto update when it is saved:
-```
-// ./tests/greeting.test.js
-  const greeting = require('../greeting');
-      ...
-      expect(greeting('Nemo')).toBe('Hello, Nemo!');
-      expect(greeting('Waldo')).toBe('Hello, Waldo!');
-      ...  
-```
-
-## 7. Install and Configure ESLint with Jest support
-First quit Jest if it's still running *Q* then
-from VS Code terminal in project root:
-```
-npm install --save-dev eslint@5.10.0
-npm install --save-dev eslint-plugin-jest@22.1.2
+npm install --save-dev eslint@5.10.0 eslint-plugin-jest@22.1.2 eslint-plugin-react@7.11.1
 ```
 
 Create ESLint configuration file in the project root:
 ```
 // .eslintrc.js
 module.exports = {
-  extends: ['eslint:recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   parserOptions: {
     ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   env: {
     node: true,
   },
+  settings: {
+    react: {
+      version: '16.4.2',
+    }
+  }
 };
 ```
 
 Create ESLint configuration file in the test directory:
 ```
-// ./tests/eslintrc.js
+// ./src/tests/eslintrc.js
 module.exports = {
   plugins: ['jest'],
   extends: ['plugin:jest/recommended'],
 };
 ```
 
-Check all is well; no feed back from either:
+Add ESLint configuration file to src folder:
 ```
-npx eslint greeting.js
-npx eslint ./tests/greeting.test.js
+// ./src/eslintrc.js
+module.exports = {
+  env: {
+    browser: true,
+  },
+};
+```
+
+Check all is well; no feed back from:
+```
+npx eslint ./src/greeting.js
+npx eslint ./src/tests/greeting.test.js
+npx eslint ./src/tests/greeting-react.test.js
 ```
 
 Install ESLint plugin for linting as you code, open extensions
@@ -212,6 +214,8 @@ module.exports = {
   ...
 };
 ```
+
+
 
 Create Prettier configuration file in the project root:
 ```
