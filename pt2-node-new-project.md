@@ -167,7 +167,7 @@ module.exports = {
 
 Create ESLint configuration file in the test directory:
 ```
-// ./src/tests/eslintrc.js
+// ./src/tests/.eslintrc.js
 module.exports = {
   plugins: ['jest'],
   extends: ['plugin:jest/recommended'],
@@ -176,7 +176,7 @@ module.exports = {
 
 Add ESLint configuration file to src folder:
 ```
-// ./src/eslintrc.js
+// ./src/.eslintrc.js
 module.exports = {
   env: {
     browser: true,
@@ -199,8 +199,7 @@ Your code will now be linted as you type, this can be changed to as you save, se
 ## 8. Install, configure and integrate Prettier with VS Code
 Run from project root:
 ```
-npm install --save-dev prettier-eslint-cli@4.7.1
-npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+npm install --save-dev prettier-eslint-cli@4.7.1 eslint-config-prettier eslint-plugin-prettier
 ```
 
 Install Prettier plugin for linting as you code, open extensions
@@ -210,7 +209,7 @@ Edit ESLint configuration file in the project root:
 ```
 // .eslintrc.js
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: [... ,'plugin:prettier/recommended'],
   ...
 };
 ```
@@ -244,4 +243,23 @@ The check it all works:
 npm run format
 ```
 
-## 9. Use Wallaby?
+## 9. Use Wallaby
+Create Wallaby configuration file in the project root:
+```
+// wallaby.js
+module.exports = function(wallaby) {
+  return {
+    testFramework: 'jest',
+    env: {
+      type: 'node',
+    },
+    tests: ['src/tests/**/*.test.js'],
+    files: ['src/**/*.js', '!**/*.test.js', '!**/.*'],
+
+    compilers: {
+      '**/*.js': wallaby.compilers.babel(),
+    },
+  };
+};
+```
+Open command palette (ctrl+shift+p) and run Wallaby.js: Start command.
