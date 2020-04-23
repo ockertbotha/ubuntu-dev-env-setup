@@ -111,7 +111,7 @@ npm test
 
 ## 7. Install React and add test
 ```
-npm install react@16.4.2
+npm install react@16.4.2 prop-types@15.7.2
 npm install --save-dev react-dom@16.4.2
 ```
 
@@ -214,8 +214,6 @@ module.exports = {
 };
 ```
 
-
-
 Create Prettier configuration file in the project root:
 ```
 // .prettierrc.js
@@ -263,3 +261,11 @@ module.exports = function(wallaby) {
 };
 ```
 Open command palette (ctrl+shift+p) and run Wallaby.js: Start command.
+
+## 10. Using Enzyme
+Note: consider switching to react-testing-library (https://github.com/kentcdodds/react-testing-library)
+
+From VS Code terminal in project root:
+```
+npm install --save-dev enzyme@3.8.0 enzyme-adapter-react-16@1.7.1
+```
