@@ -26,7 +26,7 @@ sudo nano /etc/environment
 
 Add the path for your preferred Java install to the end:
 ```
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre"
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 ```
 
 Reload the environment file into the current session:
