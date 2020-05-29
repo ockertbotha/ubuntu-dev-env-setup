@@ -44,7 +44,7 @@ npm install --save-dev @babel/preset-react@7.0.0 @babel/preset-env@7.2.0
 
 Make accessible:
 ```
-// ./babelrc.js
+// ./.babelrc.js
 module.exports = {
   presets: ['@babel/preset-react', '@babel/preset-env'],
 };
@@ -139,14 +139,25 @@ Note: pt3-vscode-configuration-node must also be completed for all of this to wo
 
 From VS Code terminal in project root:
 ```
-npm install --save-dev eslint@5.10.0 eslint-plugin-jest@22.1.2 eslint-plugin-react@7.11.1
+npm install --save-dev eslint@5.10.0 eslint-plugin-jest@22.1.2 eslint-plugin-react@7.11.1 babel-eslint@10.0.1
+npm install --save-dev --save-dev @babel/plugin-proposal-class-properties@7.1.0
 ```
+
+Update Babel config:
+```
+// ./.babelrc.js
+module.exports = {
+  ...
+  plugins: ['@babel/plugin-proposal-class-properties'],
+  ...
+};
 
 Create ESLint configuration file in the project root:
 ```
 // .eslintrc.js
 module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -179,7 +190,7 @@ Add ESLint configuration file to src folder:
 // ./src/.eslintrc.js
 module.exports = {
   env: {
-    browser: true,
+    browser: true,npm install --save-dev --save-dev @babel/plugin-proposal-class-properties@7.1.0
   },
 };
 ```
