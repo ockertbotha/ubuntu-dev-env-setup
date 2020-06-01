@@ -290,6 +290,9 @@ module.exports = function(wallaby) {
   return {
     testFramework: 'jest',
     env: {
+      type: 'node',return {
+    testFramework: 'jest',
+    env: {
       type: 'node',
     },
     tests: ['src/tests/**/*.test.js'],
@@ -299,5 +302,75 @@ module.exports = function(wallaby) {
       '**/*.js': wallaby.compilers.babel(),
     },
   };
+    },
+    tests: ['src/tests/**/*.test.js'],
+    files: ['src/**/*.js', '!**/*.test.js', '!**/.*'],
+
+    compilers: {
+      '**/*.js': wallaby.compilers.babel(),
+    },
+  };
 };
+```
+
+## 11. Using webpack
+Do this once you have some code in the project, at least entry points.
+
+From VS Code terminal in project root:
+```
+npm install --save-dev webpack@4.26.1 webpack-cli@3.1.2 babel-loader@8.0.4
+```
+
+Create webpack configuration file in the project root:
+```
+// webpack.config.js
+module.exports =  {
+  mode: 'development',
+  entry: {
+    carousel: './src/SomeComponent.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: require.resolve('babel-loader'),
+      },
+    ],
+  },
+};
+```
+
+Explicitly pass webpack the configuration file:
+```
+// package.json
+"scripts":  {
+  ...
+  "build": "webpack --config webpack.config.js"
+  ...
+};
+```
+
+ESLint should ignore generated code; create ignore file in project root:
+```
+// .eslintignore
+dist/
+```
+
+Prettier should ignore generated code; create ignore file in project root:
+```
+// .prettierignore
+dist/
+```
+
+VS Code should also ignore the dist directory:
+```
+// .vscode/settings.json
+{
+  ...
+  "files.exclude": {
+    "dist": true,
+    ...
+  },
+  ...
+}
 ```
