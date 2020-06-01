@@ -151,6 +151,7 @@ module.exports = {
   plugins: ['@babel/plugin-proposal-class-properties'],
   ...
 };
+```
 
 Create ESLint configuration file in the project root:
 ```
