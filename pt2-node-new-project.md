@@ -319,16 +319,25 @@ Do this once you have some code in the project, at least entry points.
 From VS Code terminal in project root:
 ```
 npm install --save-dev webpack@4.26.1 webpack-cli@3.1.2 babel-loader@8.0.4
+npm install --save-dev html-webpack-plugin@3.2.0
 ```
 
 Create webpack configuration file in the project root:
 ```
 // webpack.config.js
-module.exports =  {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
   mode: 'development',
   entry: {
-    carousel: './src/SomeComponent.js',
+    carousel: './src/Carousel.js',
+    example: './example/index.js',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Carousel Example',
+      chunks: ['example'],
+    }),
+  ],
   module: {
     rules: [
       {
